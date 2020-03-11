@@ -1,38 +1,139 @@
-.App {
+body {
+  background: #8E2DE2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+body > #root > .kokeilu{
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+
+
+.banner-text {
+  background-color: black;
+  opacity: 0.8;
+  width: 75%;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.banner-text h1 {
+  font-size: 66px;
+  font-weight: bold;
+  color: white;
+}
+.banner-text h2 {
+  
+  font-weight: bold;
+  color: white;
+}
+.banner-text hr {
+  border-top: 5px dotted white;
+  width: 50%;
+  margin: auto;
+}
+
+.banner-text p {
+  color: white;
+  font-size: 20px;
+  
+}
+
+.banner-text2 {
+  background-color: black;
+  opacity: 0.8;
+  width: 50%;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  
+  border-radius: 10px;
+}
+
+.banner-text2 h2 {
+  font-weight: bold;
+  color: white;
+}
+.banner-text2 hr {
+  border-top: 5px dotted white;
+  width: 50%;
+  margin: auto;
+}
+
+.banner-text2 p {
+  color: white;
+  font-size: 20px;
+  
+}
+
+.inputt{
+margin:auto;
+  width: 50%;
+}
+
+.avatar-img {
+  margin-top: 10%;
+  opacity: 0.9;
+}
+.card-img-top {
+  width: 20%;
+  height: 3vw;
+}
+.card-img-top2 {
+  width: 40%;
+  height: 50%;
+}
+
+.presentText {
+  margin-top: 2em;
+  text-align: center;
+}
+.presentText h4 {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.kortin-teksti {
+  color: darkslategray;
+  font-weight: bold;
+  font-size: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.kortti-ryhma {
+  height: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-bottom: 2%;
+  opacity: 1;
 }
+
+.rivit {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin:auto;
+  background-color: black;
+  width: 75%;
+}
+
+.rivit2 {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  margin:auto;
+  margin-top: 2em;
+  width: 75%;
+}
+
+
+
+
