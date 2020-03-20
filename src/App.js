@@ -9,18 +9,38 @@ import Prices from "./components/Prices";
 import { Row, Container, InputGroup, FormControl, Button } from "react-bootstrap";
 
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import prices from "./services/prices";
 
 const App = props => {
+
   const [cards, setgitCards] = useState([]);
   const [products, setProducts] = useState([]);
   const [urls, setUrl] = useState("");
+
+
+
 
   console.log(urls);
   const handlePageChange = event => {
     setUrl(event.target.value);
     console.log(event.target.value);
   };
+
+  
+
+  const delProduct = id => {
+    
+      priceService
+      .deleteProd(id)
+      .then(res => {
+        setProducts(products.filter(p => id !== p.id))
+      })
+      .catch(error => {
+        console.log(error)
+    })    
+
+    
+    
+  }
 
   const addUrl = event => {
     event.preventDefault();
@@ -30,11 +50,18 @@ const App = props => {
     priceService.create(urlObj).then(res => {
       setProducts(products.concat(res));
       console.log(res);
-    });
+      setUrl("")
+    })
+      .catch(error => {
+      console.log(error)
+  
+    })
   };
 
   const prods = () =>
-    products.map(prod => <Prices key={prod.id} prod={prod} />);
+    products.map(prod => <Prices key={prod.id}
+      prod={prod}
+      delProduct={() => delProduct(prod.id)} />);
 
   useEffect(() => {
     gitService.getAll().then(response => {
@@ -88,10 +115,10 @@ const App = props => {
             <p>
               {" "}
               Currently i'm testing a Pricewatch/scraper that i built.&nbsp;
-              First you input the url to the items listing at verkkokauppa.com.
+              First you input the items verkkokauppa.com product number  .
               Then axios sends a POST request to my API.&nbsp; First thing in
               the API:s POST route , is an asynchronous call to the scraper.
-              Scraper gets the url as a parameter, and returns the name, price
+              Scraper gets the product number as a parameter, and returns the name, price
               and the image of the item. This data is then saved to my MongoDB
               database, from there it is fetched with an GET-request made by
               Reacts useEffect hook via axios. Scheduler updates the prices of
@@ -111,9 +138,9 @@ const App = props => {
         <div className="presentText">
           <h4>PRICEWATCHER</h4>
           <div className="inputt">
-          <InputGroup width="50%" className="mb-3">
+          <InputGroup width="25%" className="mb-3">
             <FormControl onChange={handlePageChange}
-              placeholder="Verkkokauppa.com URL"
+              placeholder="Verkkokauppa.com Product number"
            
             />
             <InputGroup.Append>
